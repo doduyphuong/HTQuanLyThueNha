@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Nhanvien" table="nhanvien" catalog="quanlythuenha" optimistic-lock="version">
+        <id name="maNv" type="java.lang.Integer">
+            <column name="MaNV" />
+            <generator class="identity" />
+        </id>
+        <property name="hoTen" type="string">
+            <column name="HoTen" length="225" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="100" not-null="true" />
+        </property>
+        <property name="gioiTinh" type="string">
+            <column name="GioiTinh" length="5" />
+        </property>
+        <property name="luong" type="java.lang.Float">
+            <column name="Luong" precision="12" scale="0" />
+        </property>
+        <property name="chiNhanhLamViec" type="java.lang.Integer">
+            <column name="ChiNhanhLamViec" />
+        </property>
+        <property name="soDienThoai" type="string">
+            <column name="SoDienThoai" length="12" />
+        </property>
+    </class>
+</hibernate-mapping>

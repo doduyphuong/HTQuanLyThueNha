@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Account" table="account" catalog="quanlythuenha" optimistic-lock="version">
+        <id name="username" type="string">
+            <column name="Username" length="225" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="Password" length="20" not-null="true" />
+        </property>
+        <property name="role" type="byte">
+            <column name="Role" not-null="true" />
+        </property>
+        <property name="maNv" type="int">
+            <column name="MaNV" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

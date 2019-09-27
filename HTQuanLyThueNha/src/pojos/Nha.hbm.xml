@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Nha" table="nha" catalog="quanlythuenha" optimistic-lock="version">
+        <id name="maNha" type="java.lang.Integer">
+            <column name="MaNha" />
+            <generator class="identity" />
+        </id>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="100" not-null="true" />
+        </property>
+        <property name="quan" type="string">
+            <column name="Quan" length="20" not-null="true" />
+        </property>
+        <property name="thanhPho" type="string">
+            <column name="ThanhPho" length="20" not-null="true" />
+        </property>
+        <property name="khuVuc" type="string">
+            <column name="KhuVuc" length="30" not-null="true" />
+        </property>
+        <property name="tienThue1thang" type="java.lang.Float">
+            <column name="TienThue1Thang" precision="12" scale="0" />
+        </property>
+        <property name="loaiNha" type="java.lang.Integer">
+            <column name="LoaiNha" />
+        </property>
+        <property name="chuNha" type="java.lang.Integer">
+            <column name="ChuNha" />
+        </property>
+        <property name="chiNhanhDangKy" type="java.lang.Integer">
+            <column name="ChiNhanhDangKy" />
+        </property>
+    </class>
+</hibernate-mapping>

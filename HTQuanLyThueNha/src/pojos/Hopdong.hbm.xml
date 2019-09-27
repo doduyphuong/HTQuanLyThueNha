@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Hopdong" table="hopdong" catalog="quanlythuenha" optimistic-lock="version">
+        <id name="maHd" type="java.lang.Integer">
+            <column name="MaHD" />
+            <generator class="identity" />
+        </id>
+        <property name="maNha" type="java.lang.Integer">
+            <column name="MaNha" unique="true" />
+        </property>
+        <property name="maChuNha" type="java.lang.Integer">
+            <column name="MaChuNha" unique="true" />
+        </property>
+        <property name="maNt" type="java.lang.Integer">
+            <column name="MaNT" unique="true" />
+        </property>
+        <property name="ngayKyHd" type="date">
+            <column name="NgayKyHD" length="10" not-null="true" />
+        </property>
+        <property name="ngayBatDauHd" type="date">
+            <column name="NgayBatDauHD" length="10" not-null="true" />
+        </property>
+        <property name="ngayKetThucHd" type="date">
+            <column name="NgayKetThucHD" length="10" not-null="true" />
+        </property>
+        <property name="tienThue1thang" type="java.lang.Float">
+            <column name="TienThue1Thang" precision="12" scale="0" />
+        </property>
+        <property name="tienCoc" type="float">
+            <column name="TienCoc" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="maNv" type="java.lang.Integer">
+            <column name="MaNV" />
+        </property>
+    </class>
+</hibernate-mapping>

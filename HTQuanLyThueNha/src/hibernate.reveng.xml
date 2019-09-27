@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="quanlythuenha"/>
+  <table-filter match-name="nha"/>
+  <table-filter match-name="hopdong"/>
+  <table-filter match-name="nguoithue_yeucau"/>
+  <table-filter match-name="chunha"/>
+  <table-filter match-name="nhanvien"/>
+  <table-filter match-name="loainha"/>
+  <table-filter match-name="account"/>
+  <table-filter match-name="chinhanh"/>
+  <table-filter match-name="nv_dienthoai"/>
+  <table-filter match-name="nha_nvphutrach"/>
+  <table-filter match-name="nguoithue"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.NguoithueYeucau" table="nguoithue_yeucau" catalog="quanlythuenha" optimistic-lock="version">
+        <composite-id name="id" class="int">
+            <key-property name="maNt" type="int">
+                <column name="MaNT" />
+            </key-property>
+            <key-property name="maLoaiNha" type="int">
+                <column name="MaLoaiNha" />
+            </key-property>
+        </composite-id>
+        <property name="nganSach" type="java.lang.Float">
+            <column name="NganSach" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

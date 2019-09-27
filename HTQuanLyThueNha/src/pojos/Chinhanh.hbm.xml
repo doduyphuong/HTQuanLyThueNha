@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Chinhanh" table="chinhanh" catalog="quanlythuenha" optimistic-lock="version">
+        <id name="maCn" type="java.lang.Integer">
+            <column name="MaCN" />
+            <generator class="identity" />
+        </id>
+        <property name="tenChiNhanh" type="string">
+            <column name="TenChiNhanh" length="225" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="100" not-null="true" />
+        </property>
+        <property name="quan" type="string">
+            <column name="Quan" length="20" not-null="true" />
+        </property>
+        <property name="thanhPho" type="string">
+            <column name="ThanhPho" length="20" not-null="true" />
+        </property>
+        <property name="khuVuc" type="string">
+            <column name="KhuVuc" length="30" not-null="true" />
+        </property>
+        <property name="soDienThoai" type="string">
+            <column name="SoDienThoai" length="12" />
+        </property>
+        <property name="soFax" type="string">
+            <column name="SoFAX" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>

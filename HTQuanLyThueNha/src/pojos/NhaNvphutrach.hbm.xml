@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 27, 2019 9:45:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.NhaNvphutrach" table="nha_nvphutrach" catalog="quanlythuenha" optimistic-lock="version">
+        <composite-id name="id" class="int">
+            <key-property name="maNha" type="int">
+                <column name="MaNha" />
+            </key-property>
+            <key-property name="maNv" type="int">
+                <column name="MaNV" />
+            </key-property>
+        </composite-id>
+        <property name="ngayBatDau" type="date">
+            <column name="NgayBatDau" length="10" />
+        </property>
+        <property name="ngayKetThuc" type="date">
+            <column name="NgayKetThuc" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
