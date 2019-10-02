@@ -19,6 +19,14 @@ public class Chinhanh  implements java.io.Serializable {
      private String soFax;
 
     public Chinhanh() {
+        this.maCn = 1;
+        this.tenChiNhanh = "test2";
+        this.diaChi = "test2";
+        this.quan = "test2";
+        this.thanhPho = "test2";
+        this.khuVuc = "test2";
+        this.soDienThoai = "test2";
+        this.soFax = "test2";
     }
 
 	

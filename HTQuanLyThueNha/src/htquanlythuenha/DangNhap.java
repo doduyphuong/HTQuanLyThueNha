@@ -5,12 +5,18 @@
  */
 package htquanlythuenha;
 
+import dao.AccountDAO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import pojos.Account;
+
 /**
  *
  * @author CPU12407-local
  */
 public class DangNhap extends javax.swing.JFrame {
-
+    static Account account = null;
     /**
      * Creates new form Login
      */
@@ -103,9 +109,70 @@ public class DangNhap extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtLoginActionPerformed
-        QuanLyChucNang qlcn = new QuanLyChucNang(this);
-        qlcn.setVisible(true);
+        boolean validate = validateForm();
+        if (!validate) {
+
+//            if (account.getRole() == 1) {
+//                manageClassRoom mClassRoom = new manageClassRoom(this);
+//                mClassRoom.setVisible(true);
+//            }
+//
+//            if (account.getRole() == 0) {
+//                studentLayout sLayout = new studentLayout(this, account);
+//                sLayout.setVisible(true);
+//            }
+            QuanLyChucNang qlcn = new QuanLyChucNang(this);
+            qlcn.setVisible(true);
+
+            jtfUsername.setText("");
+            jtfPasswd.setText("");
+        }
+
     }//GEN-LAST:event_jbtLoginActionPerformed
+
+    private boolean validateForm() {
+        boolean validate = false;
+        String username = jtfUsername.getText();
+        String passwd = jtfPasswd.getText();
+        StringBuilder msgErr = new StringBuilder();
+
+        if (username.equals("")) {
+            validate = true;
+            msgErr.append("Vui lòng nhập tên đăng nhập.");
+            msgErr.append("\n");
+            JOptionPane.showMessageDialog(null, msgErr, "Error", JOptionPane.ERROR_MESSAGE);
+            return validate;
+        }
+
+        if (passwd.equals("")) {
+            validate = true;
+            msgErr.append("Vui lòng nhập mật khẩu.");
+            msgErr.append("\n");
+            JOptionPane.showMessageDialog(null, msgErr, "Error", JOptionPane.ERROR_MESSAGE);
+            return validate;
+        }
+
+        if (validate == false) {
+            AccountDAO accountDAO = new AccountDAO();
+            Account a = accountDAO.getUSP_LayThongTinTaiKhoan(username, passwd);
+            if (a != null) {
+                account = a;
+                validate = false;
+            } else {
+                validate = true;
+            }
+
+        }
+
+        if (validate == true) {
+            msgErr.append("Tên đăng nhập hoặc mật khẩu chưa đúng.");
+            msgErr.append("\n");
+            jtfPasswd.setText("");
+            JOptionPane.showMessageDialog(null, msgErr, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return validate;
+    }
 
     /**
      * @param args the command line arguments
@@ -116,25 +183,6 @@ public class DangNhap extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

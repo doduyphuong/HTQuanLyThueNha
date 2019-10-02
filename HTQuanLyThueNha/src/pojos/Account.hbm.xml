@@ -11,11 +11,11 @@
         <property name="password" type="string">
             <column name="Password" length="20" not-null="true" />
         </property>
-        <property name="role" type="byte">
-            <column name="Role" not-null="true" />
+        <property name="role" type="java.lang.Integer">
+            <column name="Role" length="11" not-null="true" />
         </property>
-        <property name="maNv" type="int">
-            <column name="MaNV" not-null="true" />
+        <property name="maNv" type="java.lang.Integer">
+            <column name="MaNV" length="11" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -6,16 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/quanlythuenha?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="pojos/NguoithueYeucau.hbm.xml"/>
-    <mapping resource="pojos/Nha.hbm.xml"/>
-    <mapping resource="pojos/Nguoithue.hbm.xml"/>
-    <mapping resource="pojos/Hopdong.hbm.xml"/>
-    <mapping resource="pojos/Chinhanh.hbm.xml"/>
-    <mapping resource="pojos/NhaNvphutrach.hbm.xml"/>
-    <mapping resource="pojos/NvDienthoai.hbm.xml"/>
-    <mapping resource="pojos/Chunha.hbm.xml"/>
-    <mapping resource="pojos/Nhanvien.hbm.xml"/>
-    <mapping resource="pojos/Account.hbm.xml"/>
-    <mapping resource="pojos/Loainha.hbm.xml"/>
+    <mapping class="pojos.Account" package="pojos" resource="pojos/Account.hbm.xml"/>
+    <mapping class="pojos.Chinhanh" package="pojos" resource="pojos/Chinhanh.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
