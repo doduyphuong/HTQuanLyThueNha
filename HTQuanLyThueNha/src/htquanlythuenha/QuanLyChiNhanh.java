@@ -6,6 +6,8 @@
 package htquanlythuenha;
 
 import dao.ChinhanhDAO;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -62,6 +64,7 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
         }
 
         jTable1.setModel(tableModel);
+        jtxtFind.addKeyListener(this.kAdapter);
     }
 
     /**
@@ -76,8 +79,8 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jtxtFind = new javax.swing.JTextField();
+        jbtFind = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jbtAdd = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -121,7 +124,12 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Search:");
 
-        jButton1.setText("Tìm Kiếm");
+        jbtFind.setText("Tìm Kiếm");
+        jbtFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtFindActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -288,9 +296,9 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtFind, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jbtFind)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jView)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -312,17 +320,17 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtFind, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
+                        .addComponent(jbtFind)
                         .addComponent(jbtAdd)
                         .addComponent(jView)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jTextField1});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbtFind, jtxtFind});
 
         pack();
         setLocationRelativeTo(null);
@@ -491,6 +499,48 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jbtSubmitActionPerformed
 
+    KeyAdapter kAdapter = new KeyAdapter() {
+        public void keyTyped(KeyEvent e) {
+            char input = e.getKeyChar();
+            if ((input < '0' || input > '9') && input != '.') {
+                e.consume();
+            }
+        }
+    };
+
+    private void jbtFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtFindActionPerformed
+        // TODO add your handling code here:
+//        ChinhanhDAO chiNhanhDAO = new ChinhanhDAO();
+//        Chinhanh chiNhanh = new Chinhanh();
+
+        if (this.jtxtFind.getText().length() > 0) {
+            int maCN = Integer.parseInt(this.jtxtFind.getText());
+            ChinhanhDAO chiNhanhDAO = new ChinhanhDAO();
+            Chinhanh cn = chiNhanhDAO.getChiNhanh(maCN);
+            
+            DefaultTableModel tableModel = new DefaultTableModel();
+            tableModel.setColumnIdentifiers(columnNames);
+            
+            if(cn != null) {
+                    String[] rows = new String[8];
+                    rows[0] = String.valueOf(cn.getMaCn());
+                    rows[1] = cn.getTenChiNhanh();
+                    rows[2] = cn.getDiaChi();
+                    rows[3] = cn.getQuan();
+                    rows[4] = cn.getThanhPho();
+                    rows[5] = cn.getKhuVuc();
+                    rows[6] = cn.getSoDienThoai();
+                    rows[7] = cn.getSoFax();
+                    tableModel.addRow(rows);
+            }
+
+            jTable1.setModel(tableModel);
+        } else {
+            initLayout();
+        }
+//        
+    }//GEN-LAST:event_jbtFindActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -527,7 +577,6 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -541,13 +590,14 @@ public class QuanLyChiNhanh extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jView;
     private javax.swing.JButton jbtAdd;
     private javax.swing.JButton jbtDelete;
+    private javax.swing.JButton jbtFind;
     private javax.swing.JButton jbtSubmit;
     private javax.swing.JButton jbtUpdate;
     private javax.swing.JTextField jtxtDiaChi;
+    private javax.swing.JTextField jtxtFind;
     private javax.swing.JTextField jtxtKhuVuc;
     private javax.swing.JTextField jtxtMaCN;
     private javax.swing.JTextField jtxtQuan;
