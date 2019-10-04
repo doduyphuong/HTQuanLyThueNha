@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
-
-import java.util.List;
-import pojos.Nhanvien;
+package htquanlythuenha;
 
 /**
  *
  * @author CPU12407-local
  */
-public class NhanvienDAO {
-
-    public List<Nhanvien> getListNhanVien() {
-        List<Nhanvien> listObject = null;
-        
-        return listObject;
-    }
+class nha {
     
 }
