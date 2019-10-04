@@ -13,7 +13,7 @@ public class Hopdong  implements java.io.Serializable {
      private Integer maHd;
      private Integer maNha;
      private Integer maChuNha;
-     private Integer maNt;
+     private Integer maNt; // ma nguoi thue
      private Date ngayKyHd;
      private Date ngayBatDauHd;
      private Date ngayKetThucHd;
