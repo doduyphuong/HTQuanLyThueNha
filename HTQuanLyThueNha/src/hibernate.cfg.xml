@@ -8,5 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <mapping class="pojos.Account" package="pojos" resource="pojos/Account.hbm.xml"/>
     <mapping class="pojos.Chinhanh" package="pojos" resource="pojos/Chinhanh.hbm.xml"/>
+    <mapping class="pojos.Nguoithue" package="pojos" resource="pojos/Nguoithue.hbm.xml"/>
+    <mapping class="pojos.Chunha" package="pojos" resource="pojos/Chunha.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
