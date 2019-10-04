@@ -115,7 +115,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtLoginActionPerformed
-
+       
     }//GEN-LAST:event_jbtLoginActionPerformed
 
     /**
@@ -158,7 +158,6 @@ public class DoiMatKhau extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JButton jbtChangePass;
     private javax.swing.JButton jbtLogin;
     private javax.swing.JPasswordField jtfPasswd;
     private javax.swing.JPasswordField jtfPasswd1;

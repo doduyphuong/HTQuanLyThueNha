@@ -5,12 +5,15 @@
  */
 package htquanlythuenha;
 
+import pojos.Account;
+
 /**
  *
  * @author CPU12407-local
  */
 public class QuanLyChucNang extends javax.swing.JFrame {
     private DangNhap dangNhap;
+    static Account account = null;
     /**
      * Creates new form ManageSystem
      */
@@ -22,6 +25,7 @@ public class QuanLyChucNang extends javax.swing.JFrame {
         initComponents();
         this.dangNhap = dangNhap;
         this.dangNhap.setVisible(false);
+        account = dangNhap.account;
     }
 
     /**
@@ -55,6 +59,11 @@ public class QuanLyChucNang extends javax.swing.JFrame {
         });
 
         jButton2.setText("Infor");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("CHI NHÁNH");
@@ -247,6 +256,12 @@ public class QuanLyChucNang extends javax.swing.JFrame {
         QuanLyTaiKhoan qlTaiKhoan = new QuanLyTaiKhoan();
         qlTaiKhoan.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ThongTinCaNhan ttcn = new ThongTinCaNhan(this);
+        ttcn.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
