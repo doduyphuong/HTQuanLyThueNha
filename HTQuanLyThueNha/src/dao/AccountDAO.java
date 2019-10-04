@@ -44,4 +44,21 @@ public class AccountDAO {
         }
         return account;
     }
+    
+    public Account updatePassAccount(String userName, String passwd) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Account account = null;
+        String hql = "CALL USP_DoiMatKhauTaiKhoan(:userName,:passwd)";
+        Query query = session.createSQLQuery(hql)
+                .addEntity(Account.class)
+                .setParameter("userName", userName)
+                .setParameter("passwd", passwd);
+        List<Account> listObject = query.list();
+        transaction.commit();
+        if (listObject.size() > 0) {
+            account = (Account) listObject.get(0);
+        }
+        return account;
+    }
 }

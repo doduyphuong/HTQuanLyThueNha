@@ -58,6 +58,7 @@ public class ThongTinCaNhan extends javax.swing.JFrame {
         jtfGioiTinh = new javax.swing.JPasswordField();
         jUpdate = new javax.swing.JButton();
         jBack = new javax.swing.JButton();
+        jUpdate1 = new javax.swing.JButton();
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Mật khẩu củ:");
@@ -90,6 +91,13 @@ public class ThongTinCaNhan extends javax.swing.JFrame {
             }
         });
 
+        jUpdate1.setText("Đổi mật khẩu");
+        jUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUpdate1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,8 +127,10 @@ public class ThongTinCaNhan extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jBack))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(97, 97, 97)
+                        .addComponent(jUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jUpdate1)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,9 +156,11 @@ public class ThongTinCaNhan extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jtfGioiTinh))
-                .addGap(28, 28, 28)
-                .addComponent(jUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,6 +175,12 @@ public class ThongTinCaNhan extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jBackActionPerformed
+
+    private void jUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUpdate1ActionPerformed
+        // TODO add your handling code here:
+        DoiMatKhau dmk = new DoiMatKhau(account);
+        dmk.setVisible(true);
+    }//GEN-LAST:event_jUpdate1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +225,7 @@ public class ThongTinCaNhan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton jUpdate;
+    private javax.swing.JButton jUpdate1;
     private javax.swing.JPasswordField jtfDiaChi;
     private javax.swing.JPasswordField jtfGioiTinh;
     private javax.swing.JPasswordField jtfHoTen;

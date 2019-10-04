@@ -5,6 +5,9 @@
  */
 package htquanlythuenha;
 
+import dao.AccountDAO;
+import pojos.Account;
+
 /**
  *
  * @author CPU12407-local
@@ -16,6 +19,15 @@ public class DoiMatKhau extends javax.swing.JFrame {
      */
     public DoiMatKhau() {
         initComponents();
+    }
+
+    DoiMatKhau(Account account) {
+        AccountDAO accountDAO = new AccountDAO();
+        Account a = accountDAO.getUSP_LayThongTinTaiKhoan(account.getUsername(),account.getPassword());
+        if(a!=null && jtfPasswd1.getText().equals(account.getPassword()) && jtfPasswd.getText().equals(jtfPasswd2.getText()))
+        {
+            accountDAO.updatePassAccount(account.getUsername(),jtfPasswd.getText());
+        }
     }
 
     /**
